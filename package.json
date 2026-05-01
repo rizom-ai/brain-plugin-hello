@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "description": "Minimal external plugin example for @rizom/brain.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizom-ai/brain-plugin-hello.git"
+  },
+  "homepage": "https://github.com/rizom-ai/brain-plugin-hello#readme",
+  "bugs": {
+    "url": "https://github.com/rizom-ai/brain-plugin-hello/issues"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -11,7 +19,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -32,5 +41,16 @@
   "publishConfig": {
     "access": "public"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "author": "Rizom AI",
+  "engines": {
+    "bun": ">=1.3.3"
+  },
+  "keywords": [
+    "rizom",
+    "brain",
+    "plugin",
+    "example",
+    "external-plugin"
+  ]
 }

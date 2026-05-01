@@ -1,5 +1,7 @@
 # @rizom/brain-plugin-hello
 
+[![CI](https://github.com/rizom-ai/brain-plugin-hello/actions/workflows/ci.yml/badge.svg)](https://github.com/rizom-ai/brain-plugin-hello/actions/workflows/ci.yml)
+
 Minimal external plugin example for [`@rizom/brain`](https://github.com/rizom-ai/brains/tree/main/packages/brain-cli).
 
 This package is intentionally boring. It proves that an external plugin can:
@@ -58,9 +60,15 @@ You should see lifecycle logs similar to:
 [hello] Hello plugin ready
 ```
 
-## Local smoke test before publication
+## Smoke tests
 
-If `@rizom/brain` is not published yet, build/pack it locally in the monorepo first:
+The default CI path uses the published `@rizom/brain` package:
+
+```bash
+bun run smoke:published
+```
+
+To test against a local unpublished `@rizom/brain` build, build/pack it locally in the monorepo first:
 
 ```bash
 cd /path/to/brains/packages/brain-cli
@@ -68,7 +76,7 @@ bun run build
 bun pm pack --destination /tmp/rizom-brain-pack
 ```
 
-Then run this repo's smoke test against that tarball:
+Then run this repo's local smoke test against that tarball:
 
 ```bash
 cd /path/to/brain-plugin-hello

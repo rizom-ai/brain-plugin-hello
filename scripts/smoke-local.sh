@@ -27,6 +27,7 @@ mkdir -p "$plugin_dir" "$artifacts_dir" "$instance_dir"
 cp "$repo_root/package.json" "$plugin_dir/package.json"
 cp "$repo_root/tsconfig.json" "$plugin_dir/tsconfig.json"
 cp "$repo_root/README.md" "$plugin_dir/README.md"
+cp "$repo_root/LICENSE" "$plugin_dir/LICENSE"
 cp -R "$repo_root/src" "$plugin_dir/src"
 
 printf 'Installing plugin dependencies against %s...\n' "$BRAIN_TARBALL"
