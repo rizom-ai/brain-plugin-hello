@@ -1,0 +1,35 @@
+{
+  "name": "@rizom/brain-plugin-hello",
+  "version": "0.1.0",
+  "description": "Minimal external plugin example for @rizom/brain.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "prepack": "bun run build",
+    "smoke:local": "./scripts/smoke-local.sh"
+  },
+  "peerDependencies": {
+    "@rizom/brain": "^0.2.0-alpha.47",
+    "zod": "^3.0.0"
+  },
+  "devDependencies": {
+    "@rizom/brain": "^0.2.0-alpha.47",
+    "typescript": "^5.3.3",
+    "zod": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0"
+}
