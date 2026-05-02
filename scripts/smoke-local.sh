@@ -77,18 +77,13 @@ printf 'Installing temporary brain instance in %s...\n' "$instance_dir"
   bun install
 )
 
-printf 'Starting temporary brain instance until hello plugin is ready...\n'
-set +e
-(
+printf 'Running temporary brain instance startup check...\n'
+if ! (
   cd "$instance_dir"
-  AI_API_KEY=dummy timeout 20s bun node_modules/.bin/brain start > "$log_file" 2>&1
-)
-status=$?
-set -e
-
-if [[ "$status" != "0" && "$status" != "124" ]]; then
+  bun node_modules/.bin/brain start --startup-check > "$log_file" 2>&1
+); then
   cat "$log_file" >&2
-  exit "$status"
+  exit 1
 fi
 
 if ! grep -q "Hello plugin registered" "$log_file"; then

@@ -53,6 +53,12 @@ bun install
 brain start
 ```
 
+For CI/smoke checks that only need to prove the plugin loads and reaches `onReady`, use:
+
+```bash
+brain start --startup-check
+```
+
 You should see lifecycle logs similar to:
 
 ```txt
@@ -83,4 +89,4 @@ cd /path/to/brain-plugin-hello
 BRAIN_TARBALL=/tmp/rizom-brain-pack/rizom-brain-0.2.0-alpha.47.tgz bun run smoke:local
 ```
 
-The smoke test creates a temporary plugin copy and a temporary brain instance, installs tarballs, starts the brain with a dummy API key, and stops after verifying the hello plugin registered and reached ready. Later AI jobs may fail with the dummy key; that is expected and outside this plugin proof.
+The smoke test creates a temporary plugin copy and a temporary brain instance, installs tarballs, and runs `brain start --startup-check` to verify the hello plugin registered and reached ready. The published-package smoke test temporarily falls back to the older dummy-key timed start when testing against a published `@rizom/brain` version that does not support `--startup-check` yet.
