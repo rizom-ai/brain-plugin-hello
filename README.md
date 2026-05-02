@@ -26,7 +26,7 @@ Add the package to your brain instance `package.json`:
 ```json
 {
   "dependencies": {
-    "@rizom/brain": "^0.2.0-alpha.47",
+    "@rizom/brain": "^0.2.0-alpha.48",
     "@rizom/brain-plugin-hello": "^0.1.0"
   }
 }
@@ -86,7 +86,7 @@ Then run this repo's local smoke test against that tarball:
 
 ```bash
 cd /path/to/brain-plugin-hello
-BRAIN_TARBALL=/tmp/rizom-brain-pack/rizom-brain-0.2.0-alpha.47.tgz bun run smoke:local
+BRAIN_TARBALL=/tmp/rizom-brain-pack/rizom-brain-0.2.0-alpha.48.tgz bun run smoke:local
 ```
 
-The smoke test creates a temporary plugin copy and a temporary brain instance, installs tarballs, and runs `brain start --startup-check` to verify the hello plugin registered and reached ready. The published-package smoke test temporarily falls back to the older dummy-key timed start when testing against a published `@rizom/brain` version that does not support `--startup-check` yet.
+The smoke test creates a temporary plugin copy and a temporary brain instance, installs tarballs, and runs `brain start --startup-check` to verify the hello plugin registered and reached ready.
